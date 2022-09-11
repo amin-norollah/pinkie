@@ -1,0 +1,33 @@
+<mat-card class="dashboard-card">
+  <mat-card-header>
+    <img mat-card-avatar src="{{ content.authorPhoto }}" />
+    <mat-card-title>{{ content.authorName }}</mat-card-title>
+    <mat-card-subtitle>{{ content.location }}</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    src="{{ content.photo }}"
+    alt="{{ content.authorName }}"
+  />
+  <mat-card-content>
+    <p>
+      {{ content.description }}
+    </p>
+  </mat-card-content>
+  <mat-chip-list>
+    <mat-chip *ngFor="let tag of content.tags" data-tag="{{ tag }}">
+      <fa-icon [icon]="faHashtag"> </fa-icon>
+      {{ tag }}
+    </mat-chip>
+  </mat-chip-list>
+  <mat-card-actions>
+    <button mat-button>
+      <fa-icon [icon]="faHeart" [ngClass]="{ WhenYouliked: areYouLiked }">
+      </fa-icon
+      >{{ content.likes }}
+    </button>
+    <button mat-button>
+      <fa-icon [icon]="faComment"> </fa-icon>{{ content.comments }}
+    </button>
+  </mat-card-actions>
+</mat-card>

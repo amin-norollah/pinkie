@@ -1,0 +1,30 @@
+.main-div {
+  display: grid;
+  grid-template-rows: 0 1fr auto;
+  height: 100%;
+}
+
+router-outlet {
+  grid-row: 1;
+}
+
+router-outlet + * {
+  grid-row: 2;
+}
+
+.toolbar {
+  grid-row: 3;
+  background-color: transparent;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.toolbar > * {
+  padding: 2rem !important;
+  transition: all var(--transition-time);
+}
+
+.toolbar > *:hover {
+  color: var(--color-font4);
+}

@@ -1,0 +1,21 @@
+<div class="main-div">
+  <router-outlet></router-outlet>
+
+  <mat-toolbar class="toolbar">
+    <a [routerLink]="'/dashboard'">
+      <fa-icon [icon]="faHome" class="fa-xl"> </fa-icon>
+    </a>
+    <a [routerLink]="'/search'">
+      <fa-icon [icon]="faSearch" class="fa-xl"> </fa-icon>
+    </a>
+    <a [routerLink]="'/add'">
+      <fa-icon [icon]="faAdd" class="fa-xl"> </fa-icon>
+    </a>
+    <a [routerLink]="'/notification'">
+      <fa-icon [icon]="faHeart" class="fa-xl"> </fa-icon>
+    </a>
+    <a [routerLink]="'/user'">
+      <fa-icon [icon]="faUser" class="fa-xl"> </fa-icon>
+    </a>
+  </mat-toolbar>
+</div>

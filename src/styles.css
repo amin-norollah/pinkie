@@ -1,0 +1,110 @@
+:root {
+  --color-back: #f5d9d7;
+  --color-comp1: #d7f5e8;
+  --color-comp2: #d7e4f5;
+
+  --color-font1: #dec7c6;
+  --color-font2: #ac9897;
+  --color-font3: #7b6d6c;
+  --color-font4: #5f4d4c;
+  --color-font-body: #312b2b;
+
+  --transition-time: 0.25s;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  overflow: hidden;
+  user-select: none;
+}
+
+body {
+  width: 35%;
+  max-width: 1200px;
+  margin: auto;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  background-color: var(--color-back);
+  color: var(--color-font-body);
+}
+
+a,
+span {
+  color: var(--color-font2);
+}
+
+h1 {
+  color: var(--color-font1);
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+    1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  color: var(--color-font2);
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+    1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+  color: var(--color-font3);
+}
+
+/*****************************************************/
+/* scrolls */
+::-webkit-scrollbar {
+  width: 6px;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-comp1);
+  border-radius: 10px;
+}
+
+/*****************************************************/
+/* buttons */
+.mat-button-wrapper {
+  color: var(--color-font4);
+}
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+  background-color: var(--color-comp1);
+  margin: 0.2rem;
+}
+
+.mat-flat-button.mat-accent,
+.mat-raised-button.mat-accent,
+.mat-fab.mat-accent,
+.mat-mini-fab.mat-accent {
+  background-color: var(--color-comp2);
+  margin: 0.2rem;
+}
+
+.mat-flat-button.mat-warn,
+.mat-raised-button.mat-warn,
+.mat-fab.mat-warn,
+.mat-mini-fab.mat-warn {
+  background-color: var(--color-back);
+  margin: 0.2rem;
+}
+
+/*****************************************************/
+/* fawesome icon */
+fa-icon {
+  margin-right: 0.3rem;
+}
+
+/*****************************************************/
+/* responsive */
+@media only screen and (max-width: 600px) {
+  body {
+    width: 100%;
+  }
+}
