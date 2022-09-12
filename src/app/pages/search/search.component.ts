@@ -1,15 +1,203 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { IListContents } from 'src/app/shared/interfaces/FullContent';
+import { faHeart, faComment } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
+  faHeart = faHeart;
+  faComment = faComment;
 
-  constructor() { }
+  searchContent: IListContents[] = [
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+    {
+      id: 0,
+      likes: 10,
+      comments: 12,
+      photo: 'assets/eeff.png',
+    },
+  ];
 
-  ngOnInit(): void {
+  constructor() {}
+
+  //dialog with complete data
+  itemClicked(id: number) {
+    console.log(`id: ${id}`);
   }
-
 }

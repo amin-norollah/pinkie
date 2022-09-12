@@ -44,8 +44,10 @@
   <!-- comments -->
   <div class="dashboard-comments">
     <div class="dashboard-comment" *ngFor="let item of postComments">
+      <!-- user image -->
       <img src="{{ item.authorPhoto }}" class="dashboard-comment-user-img" />
 
+      <!-- user name and comment -->
       <p>
         <a href="{{ item.authorUrl }}" class="dashboard-comment-user-name">
           {{ item.authorName }}:
