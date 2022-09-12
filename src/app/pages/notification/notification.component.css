@@ -1,0 +1,36 @@
+.notify-card {
+  max-width: auto;
+  background-color: white;
+  color: var(--color-font-body);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.notify-card > * {
+  display: grid;
+  grid-template-columns: 8% 1fr 8%;
+  gap: 1rem;
+
+  margin-bottom: 0.7rem;
+  align-items: center;
+}
+
+.author-img {
+  aspect-ratio: 1/1;
+  width: 100%;
+  border-radius: 50%;
+  border: solid 1px #333;
+}
+
+.post-img {
+  aspect-ratio: 1/1;
+  width: 100%;
+  border: solid 1px #333;
+}
+
+.user-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}

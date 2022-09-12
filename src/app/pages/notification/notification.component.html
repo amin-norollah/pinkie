@@ -1,1 +1,14 @@
-<p>notification works!</p>
+<mat-card class="notify-card">
+  <!------------------------->
+  <!-- list of searched items -->
+  <div *ngFor="let item of notifies">
+    <img src="{{ item.authorPhoto }}" class="author-img" />
+    <p>
+      <a href="{{ item.authorUrl }}" class="user-link">
+        {{ item.authorName }}:
+      </a>
+      {{ item.detail }}
+    </p>
+    <img src="{{ item.postPhoto }}" class="post-img" />
+  </div>
+</mat-card>

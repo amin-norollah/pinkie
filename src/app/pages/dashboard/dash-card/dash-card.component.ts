@@ -4,10 +4,8 @@ import {
   faHeart,
   faComment,
 } from '@fortawesome/free-solid-svg-icons';
-import {
-  IComments,
-  IFullContents,
-} from 'src/app/shared/interfaces/FullContent';
+import { IComments } from 'src/app/shared/interfaces/Comment';
+import { IFullContents } from 'src/app/shared/interfaces/FullContent';
 
 @Component({
   selector: 'app-dash-card',
