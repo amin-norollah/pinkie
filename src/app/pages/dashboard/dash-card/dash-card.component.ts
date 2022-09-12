@@ -4,7 +4,10 @@ import {
   faHeart,
   faComment,
 } from '@fortawesome/free-solid-svg-icons';
-import { IFullContents } from 'src/app/shared/interfaces/FullContent';
+import {
+  IComments,
+  IFullContents,
+} from 'src/app/shared/interfaces/FullContent';
 
 @Component({
   selector: 'app-dash-card',
@@ -17,6 +20,17 @@ export class DashCardComponent {
   faHeart = faHeart;
 
   areYouLiked: boolean = false;
+
+  postComments: IComments[] = [
+    {
+      id: 1,
+      authorName: 'author',
+      authorUrl: 'string',
+      authorPhoto: 'string',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    },
+  ];
 
   constructor() {}
 

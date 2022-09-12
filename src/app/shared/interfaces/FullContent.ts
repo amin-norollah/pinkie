@@ -16,3 +16,11 @@ export interface IListContents {
   comments: number;
   photo: string;
 }
+
+export interface IComments {
+  id: number;
+  authorName: string;
+  authorUrl: string;
+  authorPhoto: string;
+  content: string;
+}

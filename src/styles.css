@@ -27,6 +27,7 @@ body {
   max-width: 1200px;
   margin: auto;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  text-align: justify;
 
   background-color: var(--color-back);
   color: var(--color-font-body);
@@ -61,8 +62,12 @@ h3 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-comp1);
-  border-radius: 10px;
+  background: var(--color-font1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-font2);
 }
 
 /*****************************************************/

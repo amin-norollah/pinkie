@@ -1,25 +1,20 @@
 <mat-card class="dashboard-card">
+  <!------------------------->
+  <!-- user image, name and location -->
   <mat-card-header>
     <img mat-card-avatar src="{{ content.authorPhoto }}" />
     <mat-card-title>{{ content.authorName }}</mat-card-title>
     <mat-card-subtitle>{{ content.location }}</mat-card-subtitle>
   </mat-card-header>
+  <!------------------------->
+  <!-- image -->
   <img
     mat-card-image
     src="{{ content.photo }}"
     alt="{{ content.authorName }}"
   />
-  <mat-card-content>
-    <p>
-      {{ content.description }}
-    </p>
-  </mat-card-content>
-  <mat-chip-list>
-    <mat-chip *ngFor="let tag of content.tags" data-tag="{{ tag }}">
-      <fa-icon [icon]="faHashtag"> </fa-icon>
-      {{ tag }}
-    </mat-chip>
-  </mat-chip-list>
+  <!------------------------->
+  <!-- like and comment buttons -->
   <mat-card-actions>
     <button mat-button>
       <fa-icon [icon]="faHeart" [ngClass]="{ WhenYouLiked: areYouLiked }">
@@ -30,4 +25,33 @@
       <fa-icon [icon]="faComment"> </fa-icon>{{ content.comments }}
     </button>
   </mat-card-actions>
+  <!------------------------->
+  <!-- content -->
+  <mat-card-content>
+    <p>
+      {{ content.description }}
+    </p>
+  </mat-card-content>
+  <!------------------------->
+  <!-- tags -->
+  <mat-chip-list>
+    <mat-chip *ngFor="let tag of content.tags" data-tag="{{ tag }}">
+      <fa-icon [icon]="faHashtag"> </fa-icon>
+      {{ tag }}
+    </mat-chip>
+  </mat-chip-list>
+  <!------------------------->
+  <!-- comments -->
+  <div class="dashboard-comments">
+    <div class="dashboard-comment" *ngFor="let item of postComments">
+      <img src="{{ item.authorPhoto }}" class="dashboard-comment-user-img" />
+
+      <p>
+        <a href="{{ item.authorUrl }}" class="dashboard-comment-user-name">
+          {{ item.authorName }}:
+        </a>
+        {{ item.content }}
+      </p>
+    </div>
+  </div>
 </mat-card>
