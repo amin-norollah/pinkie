@@ -18,6 +18,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AddComponent } from './pages/add/add.component';
 import { UserComponent } from './pages/user/user.component';
 import { DashCardComponent } from './pages/dashboard/dash-card/dash-card.component';
+import { SearchResultComponent } from './shared/components/search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DashCardComponent } from './pages/dashboard/dash-card/dash-card.compone
     AddComponent,
     UserComponent,
     DashCardComponent,
+    SearchResultComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

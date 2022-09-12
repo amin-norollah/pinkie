@@ -1,0 +1,15 @@
+<section class="search-container">
+  <div
+    *ngFor="let item of content"
+    (click)="itemClicked(item.id)"
+    class="search-item"
+  >
+    <img src="{{ item.photo }}" class="search-image" />
+    <div class="search-modal">
+      <fa-icon [icon]="faHeart"> </fa-icon>
+      {{ item.likes }}
+      <fa-icon [icon]="faComment" style="margin-left: 1rem"> </fa-icon>
+      {{ item.comments }}
+    </div>
+  </div>
+</section>

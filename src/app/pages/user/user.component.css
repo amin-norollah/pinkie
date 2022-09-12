@@ -1,0 +1,23 @@
+.user-card {
+  max-width: auto;
+  background-color: white;
+  color: var(--color-font-body);
+}
+
+.profile-container {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.profile-container > img {
+  aspect-ratio: 1/1;
+  width: 100%;
+
+  border-radius: 50%;
+}
+
+.profile-container > div > * {
+  margin: 0.2rem;
+}

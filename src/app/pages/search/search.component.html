@@ -1,7 +1,7 @@
 <mat-card class="search-card">
   <!------------------------->
   <!-- list of searched items -->
-  <div *ngFor="let item of searchContent" (click)="itemClicked(item.id)">
+  <!-- <div *ngFor="let item of searchContent" (click)="itemClicked(item.id)">
     <img src="{{ item.photo }}" class="search-image" />
     <div class="search-modal">
       <fa-icon [icon]="faHeart"> </fa-icon>
@@ -9,5 +9,6 @@
       <fa-icon [icon]="faComment" style="margin-left: 1rem"> </fa-icon>
       {{ item.comments }}
     </div>
-  </div>
+  </div> -->
+  <app-search-result [content]="searchContent"></app-search-result>
 </mat-card>
