@@ -30,6 +30,14 @@ body {
   text-align: justify;
 
   background-color: var(--color-back);
+  background-image: linear-gradient(
+    to right top,
+    #f4ccc9,
+    #f6d5d4,
+    #f8dfde,
+    #fae8e8,
+    #fbf2f2
+  );
   color: var(--color-font-body);
 }
 
