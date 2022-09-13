@@ -9,6 +9,9 @@
   --color-font4: #5f4d4c;
   --color-font-body: #312b2b;
 
+  --color-link-hover: #cc8684;
+  --color-link-active: #a76b68;
+
   --color-placeholder: #bbb3b3;
 
   --transition-time: 0.25s;
@@ -46,6 +49,13 @@ body {
 a,
 span {
   color: var(--color-font2);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+a:active {
+  color: var(--color-link-active);
 }
 
 h1 {

@@ -6,20 +6,58 @@
   <router-outlet></router-outlet>
 
   <mat-toolbar class="main-footer">
-    <a [routerLink]="'/dashboard'">
+    <a
+      [routerLink]="'/dashboard'"
+      (click)="ChangedRoute(0)"
+      [ngClass]="{ 'main-footer-selected': selected === 0 }"
+    >
       <fa-icon [icon]="faHome" class="fa-xl"> </fa-icon>
     </a>
-    <a [routerLink]="'/search'">
+    <a
+      [routerLink]="'/search'"
+      (click)="ChangedRoute(1)"
+      [ngClass]="{ 'main-footer-selected': selected === 1 }"
+    >
       <fa-icon [icon]="faSearch" class="fa-xl"> </fa-icon>
     </a>
-    <a [routerLink]="'/add'">
+    <a
+      [routerLink]="'/add'"
+      (click)="ChangedRoute(2)"
+      [ngClass]="{ 'main-footer-selected': selected === 2 }"
+    >
       <fa-icon [icon]="faAdd" class="fa-xl"> </fa-icon>
     </a>
-    <a [routerLink]="'/notification'">
+    <a
+      [routerLink]="'/notification'"
+      (click)="ChangedRoute(3)"
+      [ngClass]="{ 'main-footer-selected': selected === 3 }"
+    >
       <fa-icon [icon]="faHeart" class="fa-xl"> </fa-icon>
     </a>
-    <a [routerLink]="'/user'">
+    <a
+      [routerLink]="'/user'"
+      (click)="ChangedRoute(4)"
+      [ngClass]="{ 'main-footer-selected': selected === 4 }"
+    >
       <fa-icon [icon]="faUser" class="fa-xl"> </fa-icon>
     </a>
+
+    <!-- <mat-button-toggle-group appearance="legacy" class="toggle-buttons">
+      <mat-button-toggle [routerLink]="'/dashboard'">
+        <fa-icon [icon]="faHome" class="fa-xl"> </fa-icon>
+      </mat-button-toggle>
+      <mat-button-toggle [routerLink]="'/search'">
+        <fa-icon [icon]="faSearch" class="fa-xl"> </fa-icon>
+      </mat-button-toggle>
+      <mat-button-toggle [routerLink]="'/add'">
+        <fa-icon [icon]="faAdd" class="fa-xl"> </fa-icon>
+      </mat-button-toggle>
+      <mat-button-toggle [routerLink]="'/notification'">
+        <fa-icon [icon]="faHeart" class="fa-xl"> </fa-icon>
+      </mat-button-toggle>
+      <mat-button-toggle [routerLink]="'/user'">
+        <fa-icon [icon]="faUser" class="fa-xl"> </fa-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group> -->
   </mat-toolbar>
 </div>

@@ -22,4 +22,10 @@ export class AppComponent {
   faHeart = faHeart;
   faUser = faUser;
   faAdd = faAdd;
+
+  selected: number = -1;
+
+  ChangedRoute(s: number) {
+    this.selected = s;
+  }
 }
