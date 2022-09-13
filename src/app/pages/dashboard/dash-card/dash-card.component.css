@@ -1,7 +1,4 @@
 .dashboard-card {
-  max-width: auto;
-  background-color: white;
-  color: var(--color-font-body);
   margin-bottom: 0.8rem;
 }
 
@@ -19,17 +16,6 @@
 
 .mat-card-avatar:hover {
   box-shadow: rgba(60, 64, 67, 0.6) 0px 2px 3px 0px;
-}
-
-.mat-chip.mat-standard-chip {
-  background-color: var(--color-comp1);
-  color: rgb(100, 100, 100);
-
-  transition: all var(--transition-time);
-}
-
-.mat-chip.mat-standard-chip:hover {
-  background-color: var(--color-comp2);
 }
 
 /* ********************************* */

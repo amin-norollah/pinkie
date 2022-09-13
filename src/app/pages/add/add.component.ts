@@ -1,15 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { IFullContents } from 'src/app/shared/interfaces/FullContent';
+
+import { COMMA, ENTER, SPACE } from '@angular/cdk/keycodes';
+import { FormControl } from '@angular/forms';
+import { MatChipInputEvent } from '@angular/material/chips';
+
+import { faClose, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  styleUrls: ['./add.component.css'],
+  /////////////////////////////////////////////
+  //override the styles with your custom styles
+  encapsulation: ViewEncapsulation.None,
 })
-export class AddComponent implements OnInit {
+export class AddComponent {
+  faClose = faClose;
+  faCheck = faCheck;
 
-  constructor() { }
+  content: IFullContents = {
+    id: 0,
+    authorName: 'string',
+    authorPhoto: 'assets/eeff.png',
+    location: 'string',
+    likes: 10,
+    comments: 20,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    photo: 'assets/eeff.png',
+    tags: ['dd', 'daa'],
+  };
 
-  ngOnInit(): void {
+  separatorKeysCodes: number[] = [ENTER, COMMA, SPACE];
+  tags = new Set(['post']);
+  formControl = new FormControl(['post']);
+
+  addTagFromInput(event: MatChipInputEvent) {
+    if (event.value) {
+      this.tags.add(event.value);
+      event.chipInput!.clear();
+    }
   }
 
+  removeTag(tag: string) {
+    this.tags.delete(tag);
+  }
 }

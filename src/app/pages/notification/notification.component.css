@@ -1,8 +1,4 @@
 .notify-card {
-  max-width: auto;
-  background-color: white;
-  color: var(--color-font-body);
-
   display: flex;
   flex-direction: column;
 }

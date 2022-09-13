@@ -1,9 +1,3 @@
-.user-card {
-  max-width: auto;
-  background-color: white;
-  color: var(--color-font-body);
-}
-
 .profile-container {
   display: grid;
   grid-template-columns: 20% 1fr;

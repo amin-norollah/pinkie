@@ -1,1 +1,45 @@
-<p>add works!</p>
+<mat-card class="add-card">
+  <!------------------------->
+  <!-- image -->
+  <img
+    mat-card-image
+    src="{{ content.photo }}"
+    alt="{{ content.authorName }}"
+  />
+
+  <form class="form">
+    <!-- description  -->
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput #message maxlength="500"></textarea>
+      <mat-hint align="end">{{ message.value.length }} / 500</mat-hint>
+    </mat-form-field>
+
+    <!-- chips list -->
+    <mat-form-field class="chip-list" appearance="fill">
+      <mat-label>Tags</mat-label>
+      <mat-chip-list #chipList aria-label="Tag selection">
+        <mat-chip *ngFor="let tag of tags" (removed)="removeTag(tag)">
+          {{ tag }}
+          <button matChipRemove>
+            <fa-icon [icon]="faClose" style="color: #000"> </fa-icon>
+            <!-- <mat-icon>cancel</mat-icon> -->
+          </button>
+        </mat-chip>
+        <input
+          placeholder="Separate tags with enter, comma, or space..."
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="addTagFromInput($event)"
+        />
+      </mat-chip-list>
+    </mat-form-field>
+  </form>
+
+  <!------------------------->
+  <!-- like and comment buttons -->
+  <mat-card-actions align="end">
+    <button mat-button>Clear</button>
+    <button mat-raised-button color="primary">Publish</button>
+  </mat-card-actions>
+</mat-card>

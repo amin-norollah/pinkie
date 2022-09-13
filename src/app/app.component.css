@@ -16,6 +16,7 @@ router-outlet {
 router-outlet + * {
   grid-row: 3;
   overflow-y: scroll;
+  border-radius: 5px;
 }
 
 .main-footer {
