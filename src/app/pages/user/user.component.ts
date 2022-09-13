@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { IListContents } from 'src/app/shared/interfaces/FullContent';
+import { MatDialog } from '@angular/material/dialog';
+import { ControlDialogComponent } from 'src/app/shared/components/dialog/dialog.component';
+import { IListContents } from 'src/app/shared/interfaces/Content';
 import { IUsers } from 'src/app/shared/interfaces/User';
+import { GenericService } from 'src/app/shared/services/generic.service';
 
 @Component({
   selector: 'app-user',
@@ -17,86 +20,27 @@ export class UserComponent {
     description: 'string',
   };
 
-  userContents: IListContents[] = [
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-  ];
+  userContents: IListContents[] = [];
 
-  constructor() {}
+  constructor(
+    private gService: GenericService<IListContents>,
+    private dialog: MatDialog
+  ) {}
+
+  //todo : set selected user in cookie
+  ngOnInit(): void {
+    this.gService.getGeneric(`/api/contents`, `?authorId=${600}`).subscribe({
+      next: (data: any) => {
+        this.userContents = data;
+      },
+      error: (error: any) => {
+        this.dialog.open(ControlDialogComponent, {
+          data: {
+            title: `${error.statusCode}`,
+            message: error.message,
+          },
+        });
+      },
+    });
+  }
 }

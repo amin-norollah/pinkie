@@ -1,5 +1,6 @@
 export interface IFullContents {
   id: number;
+  authorId: number;
   authorName: string;
   authorPhoto: string;
   location: string;
@@ -7,7 +8,7 @@ export interface IFullContents {
   comments: number;
   description: string;
   photo: string;
-  tags: string[];
+  tags: number[];
 }
 
 export interface IListContents {

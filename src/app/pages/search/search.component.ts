@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { IListContents } from 'src/app/shared/interfaces/FullContent';
+import { IListContents } from 'src/app/shared/interfaces/Content';
 import { faHeart, faComment } from '@fortawesome/free-solid-svg-icons';
+import { GenericService } from 'src/app/shared/services/generic.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ControlDialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-search',
@@ -11,190 +14,28 @@ export class SearchComponent {
   faHeart = faHeart;
   faComment = faComment;
 
-  searchContent: IListContents[] = [
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-    {
-      id: 0,
-      likes: 10,
-      comments: 12,
-      photo: 'assets/eeff.png',
-    },
-  ];
+  searchContent: IListContents[] = [];
 
-  constructor() {}
+  constructor(
+    private gService: GenericService<IListContents>,
+    private dialog: MatDialog
+  ) {}
+
+  ngOnInit(): void {
+    this.gService.getGeneric(`/api/contents`, '').subscribe({
+      next: (data: any) => {
+        this.searchContent = data;
+      },
+      error: (error: any) => {
+        this.dialog.open(ControlDialogComponent, {
+          data: {
+            title: `${error.statusCode}`,
+            message: error.message,
+          },
+        });
+      },
+    });
+  }
 
   //dialog with complete data
   itemClicked(id: number) {

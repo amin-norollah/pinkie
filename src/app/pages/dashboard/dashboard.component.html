@@ -1,6 +1,10 @@
 <section>
   <!-- cards -->
-  <app-dash-card [content]="fullContent[0]"></app-dash-card>
+  <!-- <app-dash-card [content]="fullContent[0]"></app-dash-card>
   <app-dash-card [content]="fullContent[1]"></app-dash-card>
-  <app-dash-card [content]="fullContent[2]"></app-dash-card>
+  <app-dash-card [content]="fullContent[2]"></app-dash-card> -->
+  <app-dash-card
+    *ngFor="let item of fullContent"
+    [content]="item"
+  ></app-dash-card>
 </section>

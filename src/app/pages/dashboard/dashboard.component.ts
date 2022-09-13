@@ -1,51 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ControlDialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 
-import { IFullContents } from 'src/app/shared/interfaces/FullContent';
+import { IFullContents } from 'src/app/shared/interfaces/Content';
+import { GenericService } from 'src/app/shared/services/generic.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent {
-  fullContent: IFullContents[] = [
-    {
-      id: 0,
-      authorName: 'string',
-      authorPhoto: 'assets/eeff.png',
-      location: 'string',
-      likes: 10,
-      comments: 20,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      photo: 'assets/eeff.png',
-      tags: ['dd', 'daa'],
-    },
-    {
-      id: 0,
-      authorName: 'string',
-      authorPhoto: 'assets/eeff.png',
-      location: 'string',
-      likes: 10,
-      comments: 20,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      photo: 'assets/eeff.png',
-      tags: ['dd', 'daa'],
-    },
-    {
-      id: 0,
-      authorName: 'string',
-      authorPhoto: 'assets/eeff.png',
-      location: 'string',
-      likes: 10,
-      comments: 20,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      photo: 'assets/eeff.png',
-      tags: ['dd', 'daa'],
-    },
-  ];
+export class DashboardComponent implements OnInit {
+  fullContent: IFullContents[] = [];
 
-  constructor() {}
+  constructor(
+    private gService: GenericService<IFullContents>,
+    private dialog: MatDialog
+  ) {}
+
+  ngOnInit(): void {
+    this.gService.getGeneric(`/api/contents`, '').subscribe({
+      next: (data: any) => {
+        this.fullContent = data;
+      },
+      error: (error: any) => {
+        this.dialog.open(ControlDialogComponent, {
+          data: {
+            title: `${error.statusCode}`,
+            message: error.message,
+          },
+        });
+      },
+    });
+  }
 }

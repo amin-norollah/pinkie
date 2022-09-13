@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { IFullContents } from 'src/app/shared/interfaces/FullContent';
+import { IFullContents } from 'src/app/shared/interfaces/Content';
 
 import { COMMA, ENTER, SPACE } from '@angular/cdk/keycodes';
 import { FormControl } from '@angular/forms';
@@ -21,6 +21,7 @@ export class AddComponent {
 
   content: IFullContents = {
     id: 0,
+    authorId: 600, //todo
     authorName: 'string',
     authorPhoto: 'assets/eeff.png',
     location: 'string',
@@ -29,7 +30,7 @@ export class AddComponent {
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     photo: 'assets/eeff.png',
-    tags: ['dd', 'daa'],
+    tags: [0, 1],
   };
 
   separatorKeysCodes: number[] = [ENTER, COMMA, SPACE];

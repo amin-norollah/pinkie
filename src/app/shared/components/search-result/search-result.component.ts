@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { faHeart, faComment } from '@fortawesome/free-solid-svg-icons';
-import { IListContents } from 'src/app/shared/interfaces/FullContent';
+import { IListContents } from 'src/app/shared/interfaces/Content';
 
 @Component({
   selector: 'app-search-result',
