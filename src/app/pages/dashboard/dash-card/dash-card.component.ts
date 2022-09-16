@@ -32,7 +32,7 @@ export class DashCardComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.gService
-      .getGeneric(`/api/comments`, `?postId=${this.content.id}`)
+      .getGeneric(`/api/comments?postId=${this.content.id}`)
       .subscribe({
         next: (data: any) => {
           this.postComments = data;

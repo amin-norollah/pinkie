@@ -12,12 +12,12 @@ import { GenericService } from 'src/app/shared/services/generic.service';
 })
 export class UserComponent {
   userProfile: IUsers = {
-    id: 4,
-    username: 'string',
-    name: 'string',
-    family: 'string',
+    id: 0,
+    username: '',
+    name: '',
+    family: '',
     photo: 'assets/eeff.png',
-    description: 'string',
+    description: '',
   };
 
   userContents: IListContents[] = [];
@@ -29,9 +29,29 @@ export class UserComponent {
 
   //todo : set selected user in cookie
   ngOnInit(): void {
-    this.gService.getGeneric(`/api/contents`, `?authorId=${600}`).subscribe({
+    const userId: number = +localStorage.getItem('selectedUserId')!;
+    //loading user
+    this.gService.getGeneric(`/api/users/${userId}`).subscribe({
+      next: (data: any) => {
+        this.userProfile = data;
+        console.log(this.userProfile);
+      },
+      error: (error: any) => {
+        this.dialog.open(ControlDialogComponent, {
+          data: {
+            title: `${error.statusCode}`,
+            message: error.message,
+          },
+        });
+      },
+    });
+
+    //loading content
+    this.gService.getGeneric(`/api/contents?authorId=${userId}`).subscribe({
       next: (data: any) => {
         this.userContents = data;
+
+        console.log(this.userContents);
       },
       error: (error: any) => {
         this.dialog.open(ControlDialogComponent, {

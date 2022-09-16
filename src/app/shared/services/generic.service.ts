@@ -12,7 +12,7 @@ export class GenericService<T> {
 
   //-------------GENERIC API--------------//
   //GET
-  getGeneric(url: string, queryString: string): Observable<T> {
+  getGeneric(url: string, queryString: string = ''): Observable<T> {
     return this.http.get<T>(url + queryString).pipe(
       retry(1),
       catchError((error) => throwError(() => error))

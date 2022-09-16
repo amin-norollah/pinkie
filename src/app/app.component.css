@@ -9,6 +9,13 @@
   background-color: transparent;
 }
 
+.selection-img {
+  width: 1.5rem;
+  margin-right: 0.75rem;
+  aspect-ratio: 1/1;
+  border-radius: 0.75rem;
+}
+
 router-outlet {
   grid-row: 2;
 }

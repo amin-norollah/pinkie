@@ -8,7 +8,7 @@ export interface IFullContents {
   comments: number;
   description: string;
   photo: string;
-  tags: number[];
+  tags: string[];
 }
 
 export interface IListContents {

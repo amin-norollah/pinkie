@@ -166,6 +166,24 @@ fa-icon {
   color: var(--color-placeholder) !important;
 }
 
+/* mat select */
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background: transparent !important;
+}
+
+.mat-select-placeholder {
+  color: rgb(100, 100, 100);
+}
+
+.mat-select-arrow {
+  border: none !important; /* hide arrow*/
+}
+
+.mat-option-text {
+  display: flex !important;
+  align-items: center;
+}
+
 /*****************************************************/
 /* responsive */
 @media only screen and (max-width: 600px) {

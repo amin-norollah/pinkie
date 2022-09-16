@@ -1,7 +1,20 @@
 <div class="main-div">
-  <mat-toolbar class="main-header">
+  <mat-toolbar class="main-header" style="justify-content: space-between">
     <!-- brand -->
     <img src="assets/imgs/logo.svg" height="72" />
+
+    <mat-form-field appearance="fill" style="width: 17%; font-size: 0.75em">
+      <mat-select
+        placeholder="Select User"
+        (selectionChange)="UserChanged($event)"
+      >
+        <mat-option [value]="user.id" *ngFor="let user of users"
+          ><img src="{{ user.photo }}" class="selection-img" />{{
+            user.username
+          }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
   </mat-toolbar>
 
   <router-outlet></router-outlet>

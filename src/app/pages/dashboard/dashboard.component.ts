@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.gService.getGeneric(`/api/contents`, '').subscribe({
+    this.gService.getGeneric(`/api/contents`).subscribe({
       next: (data: any) => {
         this.fullContent = data;
       },
