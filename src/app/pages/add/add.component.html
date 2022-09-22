@@ -11,7 +11,12 @@
     <!-- description  -->
     <mat-form-field class="full-width" appearance="fill">
       <mat-label>Description</mat-label>
-      <textarea matInput #message maxlength="500"></textarea>
+      <textarea
+        matInput
+        #message
+        maxlength="500"
+        [(ngModel)]="content.description"
+      ></textarea>
       <mat-hint align="end">{{ message.value.length }} / 500</mat-hint>
     </mat-form-field>
 
@@ -39,7 +44,8 @@
   <!------------------------->
   <!-- like and comment buttons -->
   <mat-card-actions align="end">
-    <button mat-button>Clear</button>
-    <button mat-raised-button color="primary">Publish</button>
+    <button mat-raised-button color="primary" (click)="PostItem()">
+      Publish
+    </button>
   </mat-card-actions>
 </mat-card>

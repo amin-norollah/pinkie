@@ -34,7 +34,6 @@ export class UserComponent {
     this.gService.getGeneric(`/api/users/${userId}`).subscribe({
       next: (data: any) => {
         this.userProfile = data;
-        console.log(this.userProfile);
       },
       error: (error: any) => {
         this.dialog.open(ControlDialogComponent, {
@@ -50,8 +49,6 @@ export class UserComponent {
     this.gService.getGeneric(`/api/contents?authorId=${userId}`).subscribe({
       next: (data: any) => {
         this.userContents = data;
-
-        console.log(this.userContents);
       },
       error: (error: any) => {
         this.dialog.open(ControlDialogComponent, {
